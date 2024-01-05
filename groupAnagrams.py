@@ -1,18 +1,32 @@
+# How the solution works??
+
+# At first we import defaultdict from collections, so dictionary will have default value that is empty array (list)
+# Create dictionary res (result)
+# Iterate thru each word in array
+# Create count of letter for each word, array filled with 26 zeros
+# Iterate thru each letter in word
+# For each letter index increment if occurs
+# After the loop of letter in the end of loop of word 
+# Create dict key that consists of array turned into tuple and add value which is word
+# In the end return values of dict
+
 from collections import defaultdict
 
-def groupAnagrams(strs):
+def groupAnagram(strs):
+	res = defaultdict(list)
 
-	res = defaultdict(list) # Create dictionary that would not throw Error
+	for word in strs:
 
-	for s in strs: # For each word in array
+		count = [0] * 26 # a...z
 
-		count = [0] * 26 # Create array of 26 zero's
+		for letter in word:
 
-		for c in s: # For each letter in word
-			count[ord(c) - ord("a")] += 1 # Increment 
+			count[ord(letter)-ord("a")] += 1
 
-		res[tuple(count)].append(s) # Create dict. key that uses array turned into tuple and append initial word to it
+		res[tuple(count)].append(word)
 
 	return res.values()
 
-groupAnagrams(["eat","tea","tan","ate","nat","bat"])
+
+
+print(list(groupAnagram(["eat","tea","tan","ate","nat","bat"])))
