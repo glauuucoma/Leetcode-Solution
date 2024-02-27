@@ -22,7 +22,7 @@ class Solution(object):
                         return True
                 return False
     
-        return False  # Return False if the target is not found in the matrix
+        return False 
 
 
         

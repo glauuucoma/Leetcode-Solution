@@ -8,16 +8,10 @@ def reverseList(self, head):
         curr= nxt
     return prev
 
-# recursive Solution
+# Break down
 
-def reverseListRecur(self, head):
-    if not head:
-        return None
-    
-    newHead = head
-
-    if head.next:
-        newHead = self.reverseList(head.next)
-        head.next.next = head
-    head.next = None
-    return newHead
+# Initialize previous and current Node
+# Previous is None and the curr is head
+# While node exists:
+# Next node is curr.next property
+# 
