@@ -11,4 +11,3 @@ def isValid(s):
         else:
             stack.append(c)
     return False
-
