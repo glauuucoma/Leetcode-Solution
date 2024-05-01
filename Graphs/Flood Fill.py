@@ -20,6 +20,7 @@ def floodFill(self, image, sr, sc, color):
     def dfs(sr, sc):
         # Base case (Do this)
         # If starting row in bounds (Greater or equal zero and less than height)
+        # Because we cant extract row from -1 heoght or that doesnt exist
         # If starting column in bounds (Greater or equal zero and less than height)
         # If current cell is color that needs to be filled
         # If current cell is not filled already
