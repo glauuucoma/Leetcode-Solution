@@ -12,4 +12,4 @@ def lowestCommonAncestor(root,p,q):
         elif p.val < curr.val and q.val < curr.val:
             cur = cur.left
         else:
-            return cur
+            return curr
