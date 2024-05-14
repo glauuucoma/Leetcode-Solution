@@ -1,19 +1,19 @@
-# Time: O(n * 2^n), Space: O(n)
+def subsets(self, nums):
+        res = [] # Result, all subsets together
+        subset = [] # Current subset
 
-def subsetWithoutDuplicates(nums):
-    subsets, curSet = [],[]
-    helper(0, nums, curSet, subsets)
-    return subsets
+        def dfs(i): # recursive function
+            if i >= len(nums): # Base case to add subset to results
+                res.append(subset[:]) # Add copy of curr subset to result array 
+                return # Exit current function call
 
-def helper(i, nums, curSet, subsets):
-    if i>= len(nums):
-        subsets.append(curSet.copy())
-        return
+            # decision to include nums[i]
+            subset.append(nums[i]) # Append number to current subset
+            dfs(i + 1) # Move up to other number
 
-    # decision to include nums[i]
-    curSet.append(nums[i])
-    helper(i + 1, nums, curSet, subsets)
-    curSet.pop()
-
-    # decision NOT to include nums[i]
-    helper(i+1, nums, curSet)
+            # decision not to include nums[i]
+            subset.pop() # Remove last element
+            dfs(i + 1) # # Move up to other number
+        
+        dfs(0) # Call helper function on first element of array
+        return res # Return result array with all the subsets
